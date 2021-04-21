@@ -1,4 +1,11 @@
 # #!/bin/bash
+read -p "Login to 1Password Mac App. Press any key to continue. \n https://my.1password.com/signin?l=en"
+
+
+# My default project directory
+echo "Making directories..."
+cd ~/;
+mkdir -p workspace;
 
 echo "Installing oh-my-zsh..."
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)";
@@ -13,25 +20,29 @@ echo "Installing Brew..."
 echo "Installing Applications"
 brew bundle;
 
+# Going to need 1Password to login to stuff
+read -p "Login to 1Password - https://my.1password.com/signin?l=en. Press any key to continue."
+
 # Organize Dock
 echo "Organizing Dock..."
 defaults write com.apple.dock persistent-apps -array;
 cp ./com.apple.dock.plist /Users/$1/Library/Preferences/com.apple.dock.plist;
 killall Dock
 
-# My default project directory
-echo "Making directories..."
-cd ~/;
-mkdir -p workspace;
-
 # Configure Git
 echo "Configuring git..."
 git config --global init.defaultBranch main
 git config --global user.email "$2"
 git config --global user.name "$3"
+gh auth login
 
 # Generate SSH Key
-echo "Generating RSA Key..."
+echo "Add key to github..."
 ssh-keygen -t rsa
-pbcopy < ~/.ssh/id_rsa.pub
-echo "ssh public key copied to clip board. Add it to github profile at https://github.com/settings/profile"
+gh ssh-key add ~/.ssh/id_rsa.pub
+
+echo "Installing powerline fonts..."
+cd ~/workspace
+git clone https://github.com/powerline/fonts.git
+./fonts/install.sh
+

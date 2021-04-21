@@ -8,6 +8,8 @@ brew 'tree'
 brew 'node'
 brew 'httpie'
 brew 'nvm'
+brew 'gh'
+
 
 # Casks
 cask 'google-chrome'

@@ -21,8 +21,8 @@ killall Dock
 
 # My default project directory
 echo "Making directories..."
-# cd ~/;
-# mkdir -p workspace;
+cd ~/;
+mkdir -p workspace;
 
 # Configure Git
 echo "Configuring git..."

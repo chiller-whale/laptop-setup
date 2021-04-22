@@ -6,6 +6,7 @@ mkdir -p ~/workspace;
 
 echo "Installing oh-my-zsh..."
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)";
+cp .zshrc ~/
 
 # # Install XCode developer tools
 echo "Installing XCode Dev Tools...";

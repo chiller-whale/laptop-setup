@@ -31,7 +31,7 @@ alias gst="git add -A & git stash"
 alias gp="git push -u origin HEAD"
 alias gcb="git checkout -B"
 alias gpd="git pull --rebase origin develop"
-alias w="cd /Users/tylerfreeman/workspace"
+alias w="cd ~/workspace"
 alias gc="git checkout"
 alias i="ccat"
 

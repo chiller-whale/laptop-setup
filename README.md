@@ -15,6 +15,19 @@ This repo contains scripts and todos for setting up new laptops.
 
 To update what apps are in the dock when running the setup script, use the `update-dock.sh` script and pass your username as an argument. `update-dock.sh chiller-whale` script to update `com.apple.dock.plist`. After the file has been updated, push the changes to the remote repo.
 
+# VS Code Settings Sync
+
+I use Github to manage VS Code settings. Sometimes code get's stuck with a microsoft login. To fix this, I completely uninstall code with:
+```
+rm -fr ~/Library/Preferences/com.microsoft.VSCode.helper.plist 
+rm -fr ~/Library/Preferences/com.microsoft.VSCode.plist 
+rm -fr ~/Library/Caches/com.microsoft.VSCode
+rm -fr ~/Library/Caches/com.microsoft.VSCode.ShipIt/
+rm -fr ~/Library/Application\ Support/Code/
+rm -fr ~/Library/Saved\ Application\ State/com.microsoft.VSCode.savedState/
+rm -fr ~/.vscode/
+```
+
 # TODO:
 
 4. Add documentation on how to install specific language / plaform stuff for common tooling (e.g. Go, [Java](https://stackoverflow.com/questions/55834845/unable-to-install-java8-with-homebrew), Python)
